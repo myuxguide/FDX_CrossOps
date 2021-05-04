@@ -1,0 +1,120 @@
+<div class="container" [ngClass]="{'dialog-height':checked ==true}">
+    <div class="panel-header">Input For Profiles <span class="start-execution-close fa fa-close" (click)="closeDialog()"
+        title="Close"></span></div>
+        <div  class="panel-default">
+          <div class="panel-head">Data For Script Key
+          <mat-slide-toggle style="float:right"  [(ngModel)]="checked" (change)="changed()">Bulk</mat-slide-toggle>
+        </div> 
+          <div class="panel-body">
+            <div class="example-container mat-elevation-z8" >
+  
+    <table #table1 mat-table [dataSource]="matrowData" matSort class="table table-bordered table-striped">
+  
+      <ng-container *ngFor="let col of displaycolumndata" matColumnDef="{{col.columnDef}}">
+        <div>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ col.header}}</th>
+  
+          <td class="tbl-cell" mat-cell *matCellDef="let row">
+            <span *ngIf="col.columnDef !== 'value'"> {{col.cell(row)}}</span>
+            <Input  class="input-val"  *ngIf="col.columnDef === 'value'" [(ngModel)]="row.value" name="row.value" ngDefaultControl>
+          </td>
+        </div>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displaycolumn"></tr>
+      <tr mat-row *matRowDef="let row; columns: displaycolumn;"></tr>
+    </table>
+    </div>
+  </div>
+  <div  *ngIf="checked" >
+    <mat-accordion class="example-headers-align">
+
+<mat-expansion-panel (opened)="panelOpenState = true"
+(closed)="panelOpenState = false" hideToggle>
+<mat-expansion-panel-header >
+  <!-- <span _ngcontent-oxq-c153="" title="Bulk Execution" class="start-execution fa fa-play ng-tns-c153-1"></span> -->
+<mat-panel-title>
+ 
+  <span  title="Bulk Execution" class="start-execution fa fa-play "></span>
+
+  <label class="lbl-txt">  Select Scenarios for Bulk Execution</label>
+</mat-panel-title>
+<!-- <mat-panel-description>
+  Select Scenarios for Bulk Execution
+</mat-panel-description> -->
+</mat-expansion-panel-header>
+<div >
+  <div style="float: left;">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input type="text"
+               placeholder="Origin Country"
+               aria-label="Number"
+               matInput
+               [(ngModel)]="selectedOrgCountry"
+               [formControl]="myControl"
+               [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option (click)="search(selectedOrgCountry)" *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+  <div style="float: left;">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input type="text"
+               placeholder="Destination Country"
+               [(ngModel)]="selectedDestCountry"
+               aria-label="Number"
+               matInput
+               [formControl]="myControll"
+               [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option (click)="search(selectedDestCountry)" *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+    </div>
+    <div id="btn-div">
+    <button class="btn-search" mat-button primary color="red" (click)="searchCountry()">Search</button>
+  </div>
+<!-- </div> -->
+
+<div class="tbl" *ngIf="norecord;else norecordFound">
+<app-shared-table [mattabledataSource]="mattabledataSource" [displayedColumns]="displayedColumns" [nxtButtonFlag]="false"
+[displaycolumndefs]="displaycolumndefs" (dataChecked)="flagEnable($event)"></app-shared-table>
+</div> 
+<div class="tbl">
+<ng-template #norecordFound><label class="errorTag">No Record Found</label></ng-template>
+</div>
+</div>
+</mat-expansion-panel>
+
+<mat-expansion-panel [expanded]="true" hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <span  title="Input for Bulk Execution" class="start-execution fa fa-play "></span>
+
+     <label class="lbl-txt">Input for Bulk Execution</label>  
+    </mat-panel-title>
+    
+  </mat-expansion-panel-header>
+  <form class="example-form">
+    <mat-form-field id="txt-col" class="example-full-width">
+     <mat-label style="font-size:18px">Enter your Input for Bulk Execution</mat-label>
+     <textarea id="txt-val" matInput [(ngModel)] = "scenarioBulkId" name="scenarioBulkId" ></textarea>
+   </mat-form-field>
+ </form>
+</mat-expansion-panel>
+</mat-accordion>
+    
+
+  </div>
+  <div class="btn-aln">
+    <button class="btn-nxt" mat-button primary color="red" (click)="addExecution()">Add</button>
+  </div>
+ 

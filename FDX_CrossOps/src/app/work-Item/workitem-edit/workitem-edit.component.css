@@ -1,0 +1,104 @@
+.container{
+    padding:2px;
+    height: auto;
+}
+.panel-head{
+    /* border:1px solid rgba(0,0,0,.12); */
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+.panel-body{
+    /* border:1px solid rgba(0,0,0,.12); */
+    border: 1px solid black;
+    padding: 10px;
+    
+    
+}
+.btn-add{
+    width: 20px;
+    background-color: #572599;
+    color: #ffff;
+    border-radius: 9px;
+    cursor: pointer;
+    line-height: 18px;
+}
+.panel-header {
+    border: 1px solid rgba(0,0,0,.12);
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #572599;
+    color: white;
+}
+.start-execution-close {
+    float:right;
+    font-size: 15px;
+    cursor: pointer;
+ }
+ .mat-button-toggle-checked {
+    background-color: #572599 !important;
+    color: rgba(0,0,0,.54);
+}
+::ng-deep.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    padding: 0 11px;
+    color: white !important;
+}
+::ng-deep.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    line-height: 28px !important;
+}
+.mat-button-toggle-appearance-standard {
+    color: rgba(0,0,0,.87);
+    background: #7e7b7b -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,0)));
+}
+.btn-tgl{
+    padding: 8px;
+    text-align: center;
+}
+.btn-nxt{
+    /* width: 200px; */
+        height: 25px;
+        background-color: #572599;
+        color: #ffff;
+        border-radius: 9px;
+        cursor: pointer;
+        line-height: 27px;
+        margin-left: 1%;
+        margin-top: 10px;
+    }
+    ::ng-deep.timepicker-overlay {
+        z-index: 1200 !important;
+    }
+    ::ng-deep.timepicker__header {
+        background-color: #572599 !important;
+    }
+    ::ng-deep.clock-face__number> span.active {
+        background-color: #572599 !important;
+    }
+    ::ng-deep.clock-face__clock-hand {
+        background-color: #572599 !important;
+    }
+    ::ng-deep.timepicker-button {
+        color: #572599 !important;
+    }
+    .errorTag{
+            color: red;
+      }
+      ::ng-deep.mat-form-field {
+       
+        width: 175px;
+    }
+    ::ng-deep.mat-dialog-container {
+        display: block;
+        padding: 24px;
+        border-radius: 4px;
+        box-sizing: border-box;
+        overflow: auto;
+        outline: 0;
+        width: 410px !important;
+        height: 100%;
+        min-height: inherit;
+        max-height: inherit;
+    }

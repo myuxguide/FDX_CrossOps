@@ -1,0 +1,15 @@
+ <div class="localization-container">
+    <button class="localization-button" mat-icon-button [matMenuTriggerFor]="localeMenu">
+        <mat-icon fontSet="fa" class="fa fa-globe globe-icon"></mat-icon>{{ selectedLanguage }}
+    </button>
+    <mat-menu #localeMenu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="changeLanguage('en')">
+            <img class="locale-img" alt="English" src="assets/img/flags/United States of America.png">
+            <span class="locale-name">English</span>
+        </button>
+        <button mat-menu-item (click)="changeLanguage('nl')">
+            <img alt="Dutch" class="locale-img" src="assets/img/flags/Netherlands.png">
+            <span class="locale-name">Dutch</span>
+        </button>
+    </mat-menu>
+  </div> 

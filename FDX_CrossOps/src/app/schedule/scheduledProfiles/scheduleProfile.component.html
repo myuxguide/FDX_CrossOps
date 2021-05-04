@@ -1,0 +1,140 @@
+
+
+<div class="example-container mat-elevation-z8">
+ <label *ngIf="successMsgFlag" class="mail-info">{{successMsg}}</label>
+  <table #table mat-table [dataSource]="dataSource" matSort class="table table-bordered table-striped">
+
+    <ng-container matColumnDef="scheduledid">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Schedule ID </th>
+      <td mat-cell *matCellDef="let element" title="Click to Expand"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="scenarioid">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Profile ID </th>
+      <td mat-cell *matCellDef="let element" title="Click to Expand"> {{element.scenarioid}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="scnname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Profile Name </th>
+      <td mat-cell *matCellDef="let element" title="Click to Expand"> {{element.scnname}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="scheduledby">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header  > User  </th>
+      <td mat-cell *matCellDef="let element" title="Click to Expand"> {{element.scheduledby}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="witriggerorg">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Org </th>
+      <td mat-cell *matCellDef="let element" title="Click to Expand"> {{element.witriggerorg}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="notifyusers">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Notify Users </th>
+      <td mat-cell *matCellDef="let element" title="Click to Expand"> {{element.notifyusers}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstinput">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header id="tbl-nm">  Input </th>
+      <td mat-cell *matCellDef="let element" title="Click to Expand"> {{element.firstinput}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="timeslot">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Time Slot </th>
+      <td mat-cell *matCellDef="let element" title="Click to Expand"> {{element.timeSlotHr}} :{{element.timeSlotMinute}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="frequency">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Frequency </th>
+      <td mat-cell *matCellDef="let element " title="Click to Expand"> 
+        <mat-selection-list #list  (ngModelChange)="onNgModelChange($event)" let i = index>{{element.selectedDays[i]}}{{i}}
+          <mat-list *ngFor="let selDay of element.selectedDays" [ngClass]="{ 'blur': selDay == selDay }">{{selDay}}</mat-list>
+          
+      </mat-selection-list>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="enddate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> End Date </th>
+      <td mat-cell *matCellDef="let element" title="Click to Expand"> {{element.enddate |date:'dd/MM/yyyy hh:mm:ss'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastrun">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Run </th>
+      <td mat-cell *matCellDef="let element" title="Click to Expand"> {{element.lastrun |date:'dd/MM/yyyy hh:mm:ss'}} </td>
+    </ng-container>enabled
+    <ng-container matColumnDef="enabled">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Enabled </th>
+      <td mat-cell *matCellDef="let element" title="Click to Expand"> 
+        <mat-slide-toggle  id="blk-togl" [disabled]="true"  [(ngModel)]="element.enabled" name="element.enabled" ></mat-slide-toggle>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="actions" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+      <td mat-cell *matCellDef="let element" title="Click to Expand" >
+        <span  id="cur-pnt" class="fa fa-edit" title="Edit" (click)="$event.stopPropagation();editSchedule(element)"></span>
+        <span   id ="cur-pnt" class="fa fa-play" title="Start Now" (click)="$event.stopPropagation();startNowSchedule(element)"></span>
+        <span  id ="cur-pnt" class="fa fa-trash" title="Delete" (click)="$event.stopPropagation();deleteSchedule(element)"></span>
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"  class="element-row" (click)="rowExpand(row)"
+      [cdkDataDetailRow]="row" [cdkDataDetailRowTpl]="tpll"></tr>
+    <!-- {{element.status} -->
+  
+    
+    </table>
+    <!-- <div *ngIf="isLoading" 
+   style="display: flex; justify-content: center; align-items: center; ">
+   <mat-spinner></mat-spinner>
+
+</div> -->
+    <!-- <label class= "errorTag">{{ errorStatus}}</label> -->
+    <div class="search-results-pagination">
+      <div class="col-md-8" style="float:left">
+        <mat-form-field class="search-resultsVal">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" autocomplete="off"
+            [(ngModel)]="filterValue" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-8" [hidden]="displayPaginator">
+        <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 15]" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+</div>
+
+<ng-template #tpll let-element class="expanded-section">
+  <tr class="mat-row detail-row" [@detailExpand] > 
+    <td class="expanded-td" colspan="11">
+      <div  *ngIf="rowData.length !== 0; else error">
+        <table #rowTable class="table table-bordered table-striped row-table">
+          <thead>
+            <tr>
+              <th class="td-data">Run Id</th>
+              <th class="td-data">Exec Id</th>
+              <th class="td-data">Start Time</th>
+              <th class="td-data">Last Update Time</th>
+              <th class="td-data">Status</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of rowData">
+              <td class="td-data">{{ row.id }}</td>
+              <td class="td-data">{{ row.execId }}</td>
+              <td class="td-data">{{ row.startTime  |date:'dd/MM/yyyy hh:mm:ss'}}</td>
+              <td class="td-data">{{ row.lastUpdateTime  |date:'dd/MM/yyyy hh:mm:ss' }}</td>
+              <td class="td-data">{{ row.status }}</td>
+             
+              <td>
+                <span *ngIf="row.status === 'failed'" class="fa fa-retweet" title="Retry"></span>{{ row.retry }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ng-template #error><label class="errorTag">*No data found</label></ng-template>
+    </td>
+  </tr>
+</ng-template>

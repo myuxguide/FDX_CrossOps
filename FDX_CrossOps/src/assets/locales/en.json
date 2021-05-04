@@ -1,0 +1,13 @@
+{
+    "header" :{
+        "execution":"Execution",
+        "schedule":"Schedule",
+        "workItem":"Work Items",
+        "scriptkey":"Script Keys",
+        "executionHost":"Execution Hosts",
+        "batchScript":"Batch Scripts",
+        "managePoller":"Manage Poller",
+        "errorlog":"Error Logs"
+
+    }
+}

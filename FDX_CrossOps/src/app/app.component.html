@@ -1,0 +1,38 @@
+<div class="page-container">
+  <div class="content">
+    <nav class="navbar navbar-default">
+      <div class="navbar-container ">
+        <app-header></app-header>
+      </div>
+
+      <div class="breadcrumb">
+       
+        <app-breadcrumbs></app-breadcrumbs>
+      </div>
+    </nav>
+    <div class="main-container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <app-footer></app-footer>
+  </footer>
+</div>
+<html>
+
+<head>
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+  <meta name="Robots" content="NOINDEX " />
+</head>
+
+<body></body>
+<script type="text/javascript">
+  var gearPage = document.getElementById('GearPage');
+  if (null != gearPage) {
+    gearPage.parentNode.removeChild(gearPage);
+    document.title = "Error";
+  }
+</script>
+
+</html>

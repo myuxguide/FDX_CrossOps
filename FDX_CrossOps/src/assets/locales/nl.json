@@ -1,0 +1,13 @@
+{
+    "header" :{
+        "execution":"Uitvoering",
+        "schedule":"Schema",
+        "workItem":"Werk item",
+        "scriptkey":"Scriptsleutels",
+        "executionHost":"Uitvoeringshosts",
+        "batchScript":"Batch-scripts",
+        "managePoller":"Beheer Poller",
+        "errorlog":"Foutenlogboeken"
+
+    }
+}

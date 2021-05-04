@@ -1,0 +1,55 @@
+<div class="example-container mat-elevation-z8" >
+    
+    <table  #table mat-table (click)="next($event)" [dataSource]="mattabledataSource" matSort class="table table-bordered table-striped"  >
+    
+      <ng-container *ngFor="let col of displaycolumndefs" matColumnDef="{{col.columnDef}}" >
+          <div>
+              <th mat-header-cell *matHeaderCellDef  mat-sort-header > {{col.header}} </th>
+
+              <td  mat-cell *matCellDef="let row">
+                <div style="width: 50%" *ngIf="row.inputbtn">
+                <!-- <form  class="example-form" *ngIf="col.columnDef === 'order'">
+                  <mat-form-field class="example-full-width"> -->
+                    <!-- <mat-label>Favorite food</mat-label> -->
+                    <input matInput style="border-bottom: 1px solid" *ngIf="col.columnDef === 'order'" [(ngModel)]="row.order" name="row.order">
+                  <!-- </mat-form-field>
+                  </form> -->
+                </div>
+                <mat-checkbox *ngIf="col.columnDef === 'checked'" 
+                [disabled]="rowEnable" (change)="showOptions($event,i)"
+                 [ngClass]="{ 'blur':rowEnable ==true }"
+                 class="example-margin"></mat-checkbox>
+                <div *ngIf="col.columnDef !== 'checked' && col.columnDef !== 'order' && col.columnDef !== 'btn'"> {{col.cell(row)}}</div>
+                <div *ngIf="row.inputbtn" > 
+                <button  class="btn-add"  
+                mat-raised-button color="primary" 
+                *ngIf="col.columnDef !== 'checked' &&  col.columnDef === 'btn'" (click)="showDialog($event,row.id,row.order)">Input</button>
+                </div> 
+              </td>
+
+          </div>
+      </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          
+        <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index" 
+       
+         (click)="showDetails(row,i)"
+   
+        ></tr> 
+        <!-- [ngClass]="{ highlighted: row.highlighted || viewStepsFlag ==true }" -->
+  </table>
+<div>
+  <div class="search-results-pagination">
+    <div  style="float:left">
+      <mat-form-field class="search-resultsVal">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" autocomplete="off" [(ngModel)]="filterValue"/>
+      </mat-form-field>
+    </div>
+    
+  <div style="float:right;">
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+  
+</div>
+  </div>
+  

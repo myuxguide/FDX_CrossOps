@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="panel-header">Scheduler <span class="start-execution-close fa fa-close" (click)="closeDialog()"
+            title="Close"></span></div>
+            <label class= "errorTag" *ngIf="errorFlag">{{ errorStatus}}</label>
+    
+    <mat-card class="btn-tgl">
+      <div>
+        <mat-slide-toggle style="float:right"  [(ngModel)]="checked"></mat-slide-toggle>
+      </div> 
+        <p>
+            <mat-button-toggle-group multiple="true" name="fontStyle" aria-label="Font Style"
+                [(ngModel)]="selectedDays">
+                <mat-button-toggle value="Sunday">S</mat-button-toggle>
+                <mat-button-toggle value="Monday">M</mat-button-toggle>
+                <mat-button-toggle value="Tuesday">T</mat-button-toggle>
+                <mat-button-toggle value="Wednesday">W</mat-button-toggle>
+                <mat-button-toggle value="Thursday">T</mat-button-toggle>
+                <mat-button-toggle value="Friday">F</mat-button-toggle>
+                <mat-button-toggle value="Saturday">S</mat-button-toggle>
+            </mat-button-toggle-group>
+        </p>
+           <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Input</mat-label>
+              <input matInput [(ngModel)]="inputName" name="inputName">
+            </mat-form-field>
+            </form>
+        <div class="minutes-gap-example">
+            <input placeholder="Enter hh:mm Format "  [(ngModel)]="timeVal" 
+                [ngxTimepicker]="with5Gap" [format]="24" readonly>
+            <ngx-material-timepicker #with5Gap [minutesGap]="15"></ngx-material-timepicker>
+          </div>
+        <mat-form-field >
+            <input matInput [(ngModel)]="date" [matDatepicker]="picker" placeholder="till date" [min]="tomorrow">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div>
+
+            <div class="addComponent" style="display:-webkit-inline-box;padding: 4px;">
+              <form  class="example-form" style="width:115px" >
+                <mat-form-field class="example-full-width">
+                <mat-label>Email Address</mat-label>
+                  <input type="email" matInput   [(ngModel)]="inputTxt" name="inputTxt">
+                </mat-form-field>
+                </form>
+              <!-- <input matInput  [(ngModel)]="inputTxt"> -->
+              <button  class="btn-add" mat-raised-button color="primary" (click)="addToList()"> Add </button>
+            </div>
+            <div  style="height:54px;overflow-y: scroll;width: 74%;margin-left:12%;border: 1px solid;word-wrap: break-word;">
+      
+            <ul >
+              <span *ngFor="let item of listArr; let i = index" (click)="removeItem(i)">
+               <label>{{item}}</label> <i class="fa fa-remove">;</i>
+                <!--<button (click)="removeItem(i)" > Remove </button> -->
+              </span>
+            </ul>
+          </div>
+          <label *ngIf="mailAddFlag" class="mail-info">Email Added Successfully</label>
+          <label *ngIf="mailRemoveFlag" class="mail-remove">Email Removed Successfully</label>
+      
+        </div>
+        <button class="btn-nxt" mat-button color="primary" (click)="schedule()">Schedule Execution</button>
+    </mat-card>
+</div>

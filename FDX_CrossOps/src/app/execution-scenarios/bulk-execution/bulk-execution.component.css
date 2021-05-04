@@ -1,0 +1,155 @@
+ 
+     
+            ::ng-deep.mat-slide-toggle-bar::before {
+                content: 'ON';
+                font-size: 45%;
+                font-weight: 700;
+                color: black;
+                position: absolute;
+                left: 4px;
+                top: -5px;
+              }
+            
+              ::ng-deep.mat-slide-toggle-bar::after {
+                content: 'OFF';
+                font-size: 45%;
+                font-weight: 700;
+                color: black;
+                position: absolute;
+                left: 21px;
+                top: -5px;
+              }
+            
+          
+              .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+                  background-color: #572599;
+              }
+  .container{
+      padding:2px;
+      height: auto;
+  }
+  .panel-head{
+      /* border:1px solid rgba(0,0,0,.12); */
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+  }
+  .panel-body{
+      /* border:1px solid rgba(0,0,0,.12); */
+      border: 1px solid black;
+      padding: 10px;
+      
+      
+  }
+  .panel-header {
+      border: 1px solid rgba(0,0,0,.12);
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #572599;
+      color: white;
+  }
+  .start-execution-close {
+      float:right;
+      font-size: 15px;
+      cursor: pointer;
+   }
+  
+   .btn-nxt{
+      width: 200px;
+          height: 25px;
+          background-color: #572599;
+          color: #ffff;
+          border-radius: 9px;
+          cursor: pointer;
+          line-height: 27px;
+      }
+      .table{
+          width: 100%;
+      }
+      th{
+          padding: 10px !important;
+          text-align: center !important;
+          font-weight: bold;
+          background: #c4c4c4 -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,0)));
+      
+        }
+        .input-val{
+            width: 100%;
+        }
+        td{
+          text-align: start;
+        }
+        .btn-aln{
+          padding: 10px;
+          text-align: center;
+        }
+        #blk-togl{
+            float: right;
+        }
+        tr.mat-row, tr.mat-footer-row {
+          height: 35px !important;
+      }
+      .dialog-height,
+      .cdk-overlay-pane, .md-overlay-pane {
+          height: auto;
+        }
+        .mat-slide-toggle-bar, .mat-slide-toggle-thumb {
+          
+          border: 1px solid black;
+      }
+      .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+        background-color: unset;
+    }
+    ::ng-deep.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+      background-color: white !important;
+     border: 1px solid black !important;
+  }
+  .tbl{
+    margin-top:40px;
+  }
+  .btn-search{
+    margin-top:12px;
+    width: 200px;
+    height: 25px;
+    background-color: #572599;
+    color: #ffff;
+    border-radius: 9px;
+    cursor: pointer;
+    line-height: 27px;
+  }
+  .errorTag{
+    float: left;
+    color: red;
+    font-weight: 700;
+    padding: 20px;
+  }
+  .mat-expansion-panel-header:not([aria-disabled=true]) {
+    cursor: pointer;
+    border: 1px solid black;
+    height: 50px;
+}
+.mat-expansion-panel-header-description {
+  flex-grow: 2;
+  margin-left: 33%;
+    font-weight: bold;
+    font-size: 14px;
+}
+#txt-col{
+  width: 1000px;
+    
+}
+
+#txt-val{
+  padding: 15px;
+}
+.mat-expansion-panel-header-title, .mat-expansion-panel-header-description {
+  
+  font-weight: 700;
+  font-family: auto;
+}
+.lbl-txt{
+ margin-left: 4px;
+}

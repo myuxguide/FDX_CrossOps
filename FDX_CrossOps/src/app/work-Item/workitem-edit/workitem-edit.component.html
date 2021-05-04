@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="panel-header">WorkItem <span class="start-execution-close fa fa-close" (click)="closeDialog()"
+            title="Close"></span></div>
+    <label class="errorTag" *ngIf="errorFlag">{{ errorStatus}}</label>
+
+    <mat-card class="btn-tgl">
+        <div style="margin-bottom: 24px;">
+            <mat-slide-toggle style="float:right" [(ngModel)]="pickedforexec"></mat-slide-toggle>
+        </div>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Input</mat-label>
+                <input matInput [(ngModel)]="inputName" name="inputName">
+            </mat-form-field>
+        </form>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Output</mat-label>
+                <input matInput [(ngModel)]="outputName" name="outputName">
+            </mat-form-field>
+        </form>
+        <mat-form-field appearance="fill">
+            <mat-select  [(value)]="hostName">
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> <br>
+          <mat-form-field appearance="fill">
+            <!-- <mat-label>Favorite food</mat-label> -->
+            <mat-select>
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field><br>
+
+        <button class="btn-nxt" mat-button color="primary" (click)="updateWorkItem()">Update WorkItem</button>
+    </mat-card>
+</div>

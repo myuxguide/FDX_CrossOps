@@ -1,0 +1,71 @@
+ 
+<div class="container">
+    <div class="panel-header">Start Execution Wizard 
+     <span class="start-execution-close fa fa-close"
+       (click)="closeDialog()" title="Close"></span></div>
+ <mat-accordion class="example-headers-align" >
+   <mat-expansion-panel [expanded]="true"  hideToggle>
+    
+     <div class="panel-box">
+     <mat-expansion-panel-header class="prevent-click">
+       <mat-panel-title>
+         <b>Profiles</b>
+       </mat-panel-title>
+       <mat-panel-description  [expanded]="true" class="prevent-click" >
+       </mat-panel-description>
+      
+     </mat-expansion-panel-header>
+   </div >
+   <div class="slide-cls">
+     <div *ngIf="sequentailTogle" class="authorize-click" style=   "height: 64px;border: 1px solid;   ">
+       <mat-slide-toggle  id="blk-togl"  [(ngModel)]="checkedSeq" (change)="changed()">sequential</mat-slide-toggle>
+     </div>
+   </div>
+   <label class="error-msg" *ngIf=e2eFlag>{{errorE2EScenarioMsg}}</label>
+     <div class="authorize-click" *ngIf="profiledata?.length>0;else profileData" >
+      
+         <app-shared-table [mattabledataSource]="mattabledataSource" [nxtButtonFlag]="true" [displayedColumns]="displayedColumns" [viewStepsFlag]="false"
+           [displaycolumndefs]="displaycolumndefs" (squToggleBtn)="squToggleBtn($event)" (flagEnable)="flagEnable($event)" (showDialogVal)="showDialogVal($event)"></app-shared-table>
+       
+     </div>
+     <ng-template #profileData>
+       <label class="error-msg" for="Service Error">*service Error</label>
+     </ng-template>
+
+     <!-- <mat-action-row style="margin-right: 10%;"> -->
+      <div style="width:100%;padding: 15px;">
+
+      <div class="addComponent" style="float: left;padding: 4px;">
+        <form  class="example-form" >
+          <mat-form-field class="example-full-width">
+          <mat-label>Email Address</mat-label>
+            <input type="email" matInput   [(ngModel)]="inputTxt" name="inputTxt">
+          </mat-form-field>
+          </form>
+        <!-- <input matInput  [(ngModel)]="inputTxt"> -->
+        <button  class="btn-add" mat-raised-button color="primary" (click)="addToList()"> Add </button>
+      </div>
+      <div  style="height:54px;overflow-y: scroll;border: 1px solid; width: 44%;word-wrap: break-word;">
+
+      <ul >
+        <span *ngFor="let item of listArr; let i = index" (click)="removeItem(i)">
+         <label>{{item}}</label> <i class="fa fa-remove">;</i>
+          <!--<button (click)="removeItem(i)" > Remove </button> -->
+        </span>
+      </ul>
+    </div>
+    <label *ngIf="mailAddFlag" class="mail-info">Email Added Successfully</label>
+    <label *ngIf="mailRemoveFlag" class="mail-remove">Email Removed Successfully</label>
+
+  </div>
+  
+  <div style="text-align: center;padding:10px;">
+    <button class="btn-nxt" mat-button color="primary" (click)="startExec()">Start Execution</button>
+    <button class="btn-nxt" mat-button color="primary" (click)="scheduleExec()">Schedule Execution</button>
+  </div>
+     
+     <!-- </mat-action-row> -->
+   </mat-expansion-panel>
+  
+ </mat-accordion>
+ </div>

@@ -1,0 +1,28 @@
+<div class="breadcrumb-container">
+    <div class="breadcrumbs">
+        <span>
+            <a [routerLink]="['/home']">Cross Ops Manager</a>
+        </span>
+        <em> / Execution</em>
+    </div>
+    <div class="pga-refresh" title="Refresh Policy Grid" (click)="refreshPolicyGrid()">
+        <div class="poller">
+            <span class="status-text">Poller</span>
+            <input class="status-color" type="text" readonly />
+            <span class="divider"></span>
+        </div>
+        <div class="scheduler">
+            <span class="status-text">Scheduler</span>
+            <input class="status-color" type="text" readonly />
+            <span class="divider"></span>
+        </div>
+        <div class="server-time">
+            <span class="status-text">Server Time</span>
+            <span class="timer">{{ time | date: 'dd/MM/yyyy hh:mm:ss a' }}</span>
+            <span class="divider"></span>
+        </div>
+        <div class="version">
+            <span class="status-text">v 3.7.10</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+.user{
+    color: white;
+    margin-top: -7px;
+    width: 100%;
+    padding: 0;
+}
+ 
+.user em {
+    font-size: 25px;
+    padding: 3px;
+    vertical-align: middle;
+}
+ 
+.user-icon {
+    width: 30%;
+    float: left;
+}
+ 
+.user-data {
+    width: 68%;
+    float: right;
+}
+ 
+.name {
+    font-weight: bold;
+   
+}
+ 
+.role {
+    text-align: center;
+    font-size: smaller;
+    margin-left: -62px;
+    position: absolute;
+    top: 25px;
+}

@@ -1,0 +1,74 @@
+a {
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.breadcrumb-container {
+    overflow:auto; 
+}
+
+.breadcrumbs {
+    /* width: 65%; */
+    width: 60%;
+    float: left;
+}
+
+.pga-refresh {
+    /* width: 35%; */
+    width: 40%;
+    float: left;
+    cursor: pointer;
+}
+
+.poller {
+    width: 12%;
+    float: left;
+    text-align: center;
+}
+
+.scheduler {
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+
+.server-time {
+    width: 49%;
+    float: left;
+    text-align: center;
+}
+
+.version {
+    width: 10%;
+    float: left;
+    text-align: center;
+}
+
+.timer {
+    border: 1px solid gray;
+    padding: 1px 5px;
+    border-radius: 4px;
+    margin-left: 12px;
+    font-weight: bold;
+    background: #c4c4c4 -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,0)));
+}
+
+.divider {
+    margin-left: 11px;
+    background-color: black;
+    border: 1px solid black;
+}
+
+.status-text {
+    font-weight: bold;
+}
+
+.status-color {
+    width: 0px;
+    height: 0px;
+    padding: 7px;
+    background-color: green;
+    border-radius: 4px;
+    margin-left: 5px;
+}

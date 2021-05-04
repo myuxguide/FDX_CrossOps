@@ -1,0 +1,114 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* @import "assets/css/simple-line-icons.css"; */
+
+html, body {
+    margin: 0;
+    position: relative;
+    background-color: #DDDDDD;
+}
+
+html, body, li a, .btn, .form-control {
+    font-size: 13px !important;
+}
+
+.page-container {
+    position: relative;
+}
+
+.navbar {
+    border: 0;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0px;
+}
+
+.mat-tab-label {
+    background-color:transparent;
+    height: 35px !important;
+    min-width: 120px !important;
+}
+
+.mat-sort-header-button {
+    margin: 0 auto;
+    font-weight: bold !important;
+}
+
+.mat-tab-label-active {
+    background-color:white;
+    opacity: 1 !important;
+}
+
+.mat-tab-body-wrapper {
+    box-shadow: 4px 4px 4px #7c7c7c;
+}
+
+.mat-ink-bar {
+    display: none;
+}
+
+.mat-tab-header {
+    border-bottom-width: 0px;
+}
+
+.mat-autocomplete-panel {
+    padding: 6px 0px;
+}
+
+.mat-form-field-infix .form-control {
+    border-radius: 0px 4px 4px 0px !important;
+}
+
+.mat-tab-body-active {
+    background-color: #fff !important;
+}
+
+tr.mat-header-row {
+    height: auto !important;
+}
+
+tr.mat-header-row th {
+    font-size: 14px !important;
+}
+
+.mat-dialog-container {
+    padding: 0 !important;
+}
+
+li a:hover {
+    color: #ddd !important;
+    background-color: transparent !important;
+}
+
+li a:focus, .selected {
+    color: #572599 !important;
+    background-color: #fff !important;
+}
+
+.tabs {
+    margin-right: 5px;
+}
+
+.width_8 {
+    width: 8%;
+}
+
+.width_11 {
+    width: 11%;
+}
+
+.width_20 {
+    width: 20%;
+}
+
+.width_25 {
+    width: 25%;
+}
+
+.width_55 {
+    width: 55%;
+}

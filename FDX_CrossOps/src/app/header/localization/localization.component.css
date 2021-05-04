@@ -1,0 +1,29 @@
+.localization-container {
+    margin-top: 7px;
+    margin-right: 10px;
+}
+
+.localization-button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: #FFF;
+    display: inline-flex;
+    align-items: center;
+}
+
+.globe-icon {
+   font-size: 25px;
+   margin-right: 5px;
+   color: white;
+}
+
+.locale-img {
+    vertical-align: middle;
+    height: 35px;
+}
+
+.locale-name {
+    font-size: 16px;
+    margin-left: 15px;
+}

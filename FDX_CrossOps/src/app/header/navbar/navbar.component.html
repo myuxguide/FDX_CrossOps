@@ -1,0 +1,12 @@
+<div class="navbar-container">
+    <ul>
+        <li><a [routerLink]="['/home']" [routerLinkActive]="['selected']"><span class="fa fa-play-circle"></span> {{ 'header.execution' | translate }}</a></li>
+        <li><a [routerLink]="['/schedule']" [routerLinkActive]="['selected']"><em class="fa fa-calendar"></em> {{ 'header.schedule' | translate }}</a></li>
+        <li><a [routerLink]="['/workItem']" [routerLinkActive]="['selected']"><em class="fa fa-tasks"></em> {{ 'header.workItem' | translate }}</a></li>
+        <li><a [routerLink]="['/rates']" [routerLinkActive]="['selected']"><em  class="fa fa-key"></em> {{ 'header.scriptkey' | translate }}</a></li>
+        <li><a [routerLink]="['/surcharge']" [routerLinkActive]="['selected']"><em class="fa fa-laptop"></em>  {{ 'header.executionHost' | translate }}</a></li>
+        <li><a href="#about" [routerLinkActive]="['selected']"><em class="fa fa-cogs"></em> {{ 'header.batchScript' | translate }}</a></li>
+        <li><a [routerLink]="['/db-upload']" [routerLinkActive]="['selected']"><em class="fa fa-sliders"></em> {{ 'header.managePoller' | translate }}</a></li>
+        <li><a [routerLink]="['/surcharge']" [routerLinkActive]="['selected']"><em class="fa fa-file" ></em>{{ 'header.errorlog' | translate }}</a></li>      
+    </ul>
+  </div>  
